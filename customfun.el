@@ -1,64 +1,11 @@
-;;electric pair disturb ______
-(dolist (mode '(org-mode-hook))
-  (add-hook mode(lambda () (electric-pair-mode 0))))
+;; (defun efs/org-babel-tangle-config ()
+;;   (when (string-equal (buffer-file-name)
+;;                       (expand-file-name "/home/vijay/emacs-config/emacs.org"))
+;;     ;; Dynamic scoping to the rescue
+;;     (let ((org-confirm-babel-evaluate nil))
+;;       (org-babel-tangle))))
+;; (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'efs/org-babel-tangle-config)))
 
-
-;;backup directory
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
-;;dired
-(use-package dired-single)
-(defun my-dired-init ()
-  "Bunch of stuff to run for dired, either immediately or when it's
-     loaded."
-  ;; <add other stuff here>
-  (define-key dired-mode-map [remap dired-find-file]
-    'dired-single-buffer)
-  (define-key dired-mode-map [remap dired-mouse-find-file-other-window]
-    'dired-single-buffer-mouse)
-  (define-key dired-mode-map [remap dired-up-directory]
-    'dired-single-up-directory))
-
-;; if dired's already loaded, then the keymap will be bound
-(if (boundp 'dired-mode-map)
-    ;; we're good to go; just add our bindings
-    (my-dired-init)
-  ;; it's not loaded yet, so add our bindings to the load-hook
-  (add-hook 'dired-load-hook 'my-dired-init))
-
-(with-eval-after-load 'dired  (use-package dired-filetype-face))
-(deffiletype-face "julia" "#369325")
-(deffiletype-face-regexp julia :extensions '("julia" "jl"))
-(deffiletype-setup "julia")
-(deffiletype-face "org" "#73A594")
-(deffiletype-face-regexp org :extensions '("org" "org"))
-(deffiletype-setup "org")
-(deffiletype-face "python" "#ECC448")
-(deffiletype-face-regexp python :extensions '("python" "py"))
-(deffiletype-setup "python")
-(deffiletype-face "cpp" "#32719A")
-(deffiletype-face-regexp cpp
-  :extensions
-  '("c"
-    "cpp"
-    "f90"
-    "f95"))
-(deffiletype-setup "cpp")
-
-(with-eval-after-load 'dired  (use-package dired-hide-dotfiles))
-(defun my-dired-mode-hook ()
-    "My `dired' mode hook."
-    ;; To hide dot-files by default
-    (dired-hide-dotfiles-mode))
-
-  ;; To toggle hiding
-  (define-key dired-mode-map "." #'dired-hide-dotfiles-mode)
-  (add-hook 'dired-mode-hook #'my-dired-mode-hook)
-
-;;custom functations
 (defun move-line-up ()
   "Move up the current line."
   (interactive)
@@ -73,6 +20,7 @@
   (transpose-lines 1)
   (forward-line -1)
   (indent-according-to-mode))
+
 (defun crux-get-positions-of-line-or-region ()
   "Return positions (beg . end) of the current line or region."
   (let (beg end)
@@ -83,11 +31,7 @@
         (exchange-point-and-mark))
     (setq end (line-end-position))
     (cons beg end)))
-(defun dark-theme-toggle ()
-  (interactive)
-  (nano-theme-toggle)
-  )
-           ;;;###autoload
+
 (defun crux-duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
            If there's no region, the current line will be duplicated.  However, if
@@ -103,7 +47,6 @@
       (insert region)
       (setq end (point)))
     (goto-char (+ origin (* (length region) arg) arg))))
-
 
 (defun crux-smart-open-line-above ()
   "Insert an empty line above the current line.
@@ -131,7 +74,6 @@
   (newline-and-indent)
   (indent-according-to-mode))
 
-
 (defun crux-kill-other-buffers ()
   "Kill all buffers but the current one.
                    Doesn't mess with special buffers."
@@ -140,7 +82,6 @@
     (seq-each
      #'kill-buffer
      (delete (current-buffer) (seq-filter #'buffer-file-name (buffer-list))))))
-
 
 (defun crux-insert-date ()
   "Insert a timestamp according to locale's date and time format."
@@ -159,7 +100,6 @@
           (message "Deleted file %s" filename)
           (kill-buffer))))))
 
-
 (defun crux-indent-defun ()
   "Indent the current defun."
   (interactive)
@@ -176,9 +116,9 @@ URL `http://xahlee.info/emacs/emacs/emacs_jump_to_previous_position.html'
 Version 2016-04-04"
   (interactive)
   (set-mark-command t))
+(global-set-key (kbd "<f7>") 'pop-global-mark)
+(global-set-key (kbd "<f8>") 'xah-pop-local-mark-ring)
 
-
-;;file open in default app
 (defun xdg-open (filename)
   (interactive "fFilename: ")
   (let ((process-connection-type))
@@ -192,29 +132,6 @@ Version 2016-04-04"
         (xdg-open filename)
       (apply orig-fun args))))
 
-(advice-add 'find-file :around 'find-file-auto)
 
 
-
-(use-package captain)
-(add-hook
- 'org-mode-hook
- (lambda ()
-   (setq captain-predicate
-         (lambda () (not (org-in-src-block-p))))
-   (captain-mode 1)
-   (abbrev-mode 1)
-   (setq sentence-end-double-space nil)))
-
-(setq abbrev-expand-function (lambda ()
-                   (unless (org-in-src-block-p)
-                 (abbrev--default-expand))))
-
-
-(add-hook 'Man-mode-hook
-          (lambda ()
-            (visual-fill-column-mode 1)
-            (setq visual-fill-column-width 100)
-            (setq visual-fill-column-center-text t)))
-
-(provide 'customs)
+(provide 'customfun)

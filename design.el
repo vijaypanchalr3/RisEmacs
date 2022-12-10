@@ -1,37 +1,37 @@
 ;;some variables
-(setq column-number-mode t)
-(setq display-time-mode t)
-(setq electric-pair-mode t)
-(setq global-display-line-numbers-mode nil)
-(setq org-fontify-done-headline nil)
-(setq org-fontify-todo-headline nil)
-(setq show-paren-mode t)
-(setq size-indication-mode t)
-(setq scroll-conservatively 100) 
-(setq save-place-mode t)
-(setq ring-bell-function 'ignore)
-(setq-default line-spacing 2)
-;;(font-use-system-font nil)
-;;(window-divider-default-places t)
-
 (set-face-attribute 'default nil :font "Roboto Mono" :height 120)
-
-
-
+(dolist (mode '(org-mode-hook
+                vterm-mode-hook
+                eshell-mode-hook
+                markdown-mode-hook
+                helpful-mode-hook
+                Custom-mode-hook
+                LaTeX-mode-hook
+                text-mode-hook
+                inferior-python-mode-hook
+                dired-mode-hook
+                neotree-mode-hook
+                image-mode-hook
+                help-mode-hook
+                Man-mode-hook
+                calc-mode-hook
+                Info-mode-hook
+                Archive-mode-hook
+                term-mode-hook
+                calendar-mode-hook
+                calc-trail-mode-hook))
+  (add-hook mode(lambda () (display-line-numbers-mode 0))))
 
 ;;line spacing
 
 ;;line numbers
-;;(setq display-line-numbers-mode nil)
-(dolist (mode '(prog-mode-hook))
-  (add-hook mode(lambda () (display-line-numbers-mode 1))))
 
 ;;split control
 (setq split-height-threshold 160)
 (setq split-width-threshold 120)
 
 ;;pairs mode
-(setq electric-pair-mode t)
+;;(setq electric-pair-mode t)
 
 ;;trasnparency
 ;; (set-frame-parameter (selected-frame) 'alpha '(97 97))
@@ -81,21 +81,28 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode nil))
 (menu-bar-mode 0)
 (tool-bar-mode 0)
-
+(scroll-bar-mode 0)
+(global-display-line-numbers-mode 1)
 ;; (global-hl-line-mode 1)
 (setq x-underline-at-descent-line t)
 
 ;; Window divider
 (setq window-divider-mode 1)
-(setq window-divider-default-right-width 24)
-(setq window-divider-default-places 'right-only)
-(setq window-divider-default-bottom-width 3)
 
 
 ;; No ugly button for checkboxes
 (setq widget-image-enable nil)
+(setq ring-bell-function 'ignore)
 
 (dolist (mode '(org-mode-hook))
   (add-hook mode(lambda () (electric-pair-mode 0))))
+
+;; set transparency
+;; (set-frame-parameter (selected-frame) 'alpha '(97 97))
+;; (add-to-list 'default-frame-alist '(alpha 97 97))
+
+
+;;
+
 
 (provide 'design)

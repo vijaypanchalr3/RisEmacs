@@ -1,7 +1,7 @@
-(setq message-log-max t)
+;;(setq message-log-max t)
 
 ;; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
-(setq utf-translate-cjk-mode nil)
+;;(setq utf-translate-cjk-mode nil)
 (set-language-environment 'utf-8)
 (setq locale-coding-system 'utf-8)
 ;; set the default encoding system
