@@ -437,12 +437,8 @@ function is a convenience wrapper used by `describe-package-1'."
   "Derive org faces from nano faces."
   (with-eval-after-load 'org
     (set-face 'org-archived                            'nano-face-faded)
-
     (set-face 'org-block                                       'hl-line)
-    (set-face-attribute 'org-block nil :family     (face-attribute 'nano-face-default :family) :height (if (display-graphic-p)
-                                  (round
-                                   (* 1.1 (* 10 nano-font-size)))
-                                                1))
+    (set-face-attribute 'org-block nil :family (face-attribute 'nano-face-default :family) :height (if (display-graphic-p) (round (* 1.1 (* 10 nano-font-size))) 1))
     (set-face 'org-block-begin-line                    'nano-face-faded)
     (set-face 'org-block-end-line                      'nano-face-faded)
     (unless (version< emacs-version "27.0")
@@ -463,6 +459,12 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face 'org-document-info                       'nano-face-faded)
     (set-face 'org-document-info-keyword               'nano-face-faded)
     (set-face 'org-document-title                      'nano-face-faded)
+    (set-face-attribute 'org-document-info-keyword nil
+			:family (face-attribute 'nano-face-default :family) :height (if (display-graphic-p)
+											(round
+											 (* 0.85 (* 10 nano-font-size)))
+										      1))
+    (set-face-attribute 'org-document-title nil :height (if (display-graphic-p) (round (* 1.5 (* 10 nano-font-size))) 1))
     (set-face 'org-done                              'nano-face-default)
     (set-face 'org-drawer                              'nano-face-faded)
     (set-face 'org-ellipsis                            'nano-face-faded)
@@ -483,7 +485,12 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face 'org-link                              'nano-face-salient)
     (set-face 'org-list-dt                             'nano-face-faded)
     (set-face 'org-macro                               'nano-face-faded)
-    (set-face 'org-meta-line                           'nano-face-faded2)
+    (set-face 'org-meta-line                           'nano-face-faded)
+    (set-face-attribute 'org-meta-line nil
+			:family (face-attribute 'nano-face-default :family) :height (if (display-graphic-p)
+											(round
+											 (* 0.85 (* 10 nano-font-size)))
+										      1))
     (set-face 'org-mode-line-clock                     'nano-face-faded)
     (set-face 'org-mode-line-clock-overrun             'nano-face-faded)
     (set-face 'org-priority                            'nano-face-faded)
@@ -492,7 +499,7 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face 'org-scheduled                           'nano-face-faded)
     (set-face 'org-scheduled-previously                'nano-face-faded)
     (set-face 'org-scheduled-today                   '(nano-face-salient
-+                                                      nano-face-strong))
+						       +                                                      nano-face-strong))
     (set-face 'org-sexp-date                           'nano-face-faded)
     (set-face 'org-special-keyword                     'nano-face-faded)
     (set-face 'org-table                               'nano-face-faded)
@@ -517,13 +524,13 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face 'markdown-footnote-text-face           'nano-face-default)
     (set-face 'markdown-gfm-checkbox-face            'nano-face-default)
     (set-face 'markdown-header-delimiter-face          'nano-face-faded)
-    (set-face 'markdown-header-face                   'nano-face-strong)
-    (set-face 'markdown-header-face-1                 'nano-face-strong)
-    (set-face 'markdown-header-face-2                 'nano-face-strong)
-    (set-face 'markdown-header-face-3                 'nano-face-strong)
-    (set-face 'markdown-header-face-4                 'nano-face-strong)
-    (set-face 'markdown-header-face-5                 'nano-face-strong)
-    (set-face 'markdown-header-face-6                'nano-face-strong)
+    (set-face 'markdown-header-face                  'nano-face-strong)
+    (set-face 'markdown-header-face-1                'nano-face-strong2)
+    (set-face 'markdown-header-face-2                'nano-face-strong3)
+    (set-face 'markdown-header-face-3                'nano-face-strong4)
+    (set-face 'markdown-header-face-4                'nano-face-strong5)
+    (set-face 'markdown-header-face-5                'nano-face-strong5)
+    (set-face 'markdown-header-face-6                'nano-face-strong5)
     (set-face 'markdown-header-rule-face             'nano-face-default)
     (set-face 'markdown-highlight-face               'nano-face-default)
     (set-face 'markdown-hr-face                      'nano-face-default)

@@ -1,4 +1,5 @@
 (use-package dired-single)
+(require 'nano-base-colors)
 (defun my-dired-init ()
   "Bunch of stuff to run for dired, either immediately or when it's
      loaded."
@@ -18,13 +19,13 @@
   (add-hook 'dired-load-hook 'my-dired-init))
 
 (with-eval-after-load 'dired  (use-package dired-filetype-face))
-(deffiletype-face "julia" "#369325")
+(deffiletype-face "julia" "#dddddd")
 (deffiletype-face-regexp julia :extensions '("julia" "jl"))
 (deffiletype-setup "julia")
-(deffiletype-face "org" "#73A594")
+(deffiletype-face "org" "#454548")
 (deffiletype-face-regexp org :extensions '("org" "org"))
 (deffiletype-setup "org")
-(deffiletype-face "python" "#ECC448")
+(deffiletype-face "python" "#454454")
 (deffiletype-face-regexp python :extensions '("python" "py"))
 (deffiletype-setup "python")
 (deffiletype-face "cpp" "#32719A")

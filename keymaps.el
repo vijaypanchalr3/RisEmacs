@@ -31,7 +31,7 @@
 ;; (global-set-key (kbd "C-h") 'backward-char)
 ;; (global-set-key (kbd "C-l") 'forward-char)
 ;; (global-set-key (kbd "C-j") 'next-line)
-;; (global-set-key (kbd "C-k") 'previous-line)
+(global-set-key (kbd "C-x t") 'nano-toggle-theme)
 (global-set-key [(ctrl shift k)] 'crux-duplicate-current-line-or-region)
 (global-set-key [(ctrl =)] 'crux-smart-open-line-above)
 ;;(global-set-key (kbd "<kp-enter>") 'smart-enter)

@@ -81,7 +81,22 @@
   ""
   :type 'color
   :group 'nano)
-
+(defcustom nano-color-strong2 (nano-base-colors--get 'strong)
+  ""
+  :type 'color
+  :group 'nano)
+(defcustom nano-color-strong3 (nano-base-colors--get 'strong)
+  ""
+  :type 'color
+  :group 'nano)
+(defcustom nano-color-strong4 (nano-base-colors--get 'strong)
+  ""
+  :type 'color
+  :group 'nano)
+(defcustom nano-color-strong5 (nano-base-colors--get 'strong)
+  ""
+  :type 'color
+  :group 'nano)
 (defcustom nano-color-popout (nano-base-colors--get 'popout)
   ""
   :type 'color
@@ -93,6 +108,10 @@
   :group 'nano)
 
 (defcustom nano-color-faded (nano-base-colors--get 'faded)
+  ""
+  :type 'color
+  :group 'nano)
+(defcustom nano-color-faded2 (nano-base-colors--get 'faded)
   ""
   :type 'color
   :group 'nano)
