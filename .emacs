@@ -10,11 +10,11 @@
 
 ;; Default layout (optional)
 ;;(require 'nano-layout)
-(add-to-list 'command-switch-alist '("-dark"   . (lambda (args))))
-(add-to-list 'command-switch-alist '("-light"  . (lambda (args))))
-(add-to-list 'command-switch-alist '("-default"  . (lambda (args))))
-(add-to-list 'command-switch-alist '("-no-splash" . (lambda (args))))
-;; (add-to-list 'command-switch-alist '("-no-help" . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-dark"   . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-light"  . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-default"  . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-no-splash" . (lambda (args))))
+;; ;; (add-to-list 'command-switch-alist '("-no-help" . (lambda (args))))
 ;; (add-to-list 'command-switch-alist '("-compact" . (lambda (args))))
 
 
@@ -45,7 +45,6 @@
 (require 'customfun)
 (require 'keymaps)
 (require 'bdired)
-(require 'borg)
 (require 'elatex)
 (require 'languages)
 (require 'nano-faces)
@@ -54,7 +53,8 @@
 (require 'nano-theme-light)
 (require 'nano-modeline)
 (require 'sethooks)
-
+(require 'setvar)
+(require 'borg)
 
 (cond
  ((member "-default" command-line-args) t)
@@ -100,4 +100,32 @@
 
 
 
-(require 'setvar)
+(use-package org
+  :config
+  ;;(setq org-ellipsis " "
+  ;;      org-hide-emphasis-markers t)
+  :bind
+  ("<f12>" . org-cycle-list-bullet))
+(add-hook 'org-mode-hook 'org-overview)
+(add-hook 'org-mode-hook 'org-num-mode)
+;; (setq-default line-spacing 0)
+;;(provide 'emacs-orgmode-config)
+
+;; (setq org-adapt-indentation nil)
+;; (setq org-startup-truncated t)
+(setq global-page-break-line-mode t)
+;; (setq header-line-format " ")
+(customize-set-variable 'org-blank-before-new-entry 
+                        '((heading . nil)
+                          (plain-list-item . nil)))
+(setq backup-directory-alist `(("." . "~/.saves")))
+
+;; (setq make-backup-files nil)
+(setq org-startup-indented t
+      org-pretty-entities t
+      org-startup-with-inline-images t
+      ;;org-startup-latex-with-latex-preview t
+      org-image-actual-width (list 550))
+(setq org-cycle-separator-lines 1)
+(setq org-log-done nil)
+(setq org-html-coding-system 'utf-8-unix)
