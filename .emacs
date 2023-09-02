@@ -7,7 +7,7 @@
 (require 'keymaps)
 (require 'bdired)
 ;;(require 'elatex)
-(require 'languages)
+;;(require 'languages)
 (require 'nano-faces)
 (require 'nano-theme)
 (require 'nano-theme-dark)

@@ -55,14 +55,14 @@
 
 (defun new-info-mode-fun ()
   (setq visual-fill-column-center-text t
-        visual-fill-column-width 90)
+        visual-fill-column-width 75)
   (visual-fill-column-mode 1))
 (add-hook 'Info-mode-hook 'new-info-mode-fun)
 (add-hook 'calendar-mode-hook 'new-info-mode-fun)
 
 
 (defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 90
+  (setq visual-fill-column-width 75
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1)
   (visual-line-mode 1))

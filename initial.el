@@ -1,13 +1,13 @@
+;;----------------------------------;;
+;;            encoding              ;;
+;;----------------------------------;;
 (set-language-environment 'utf-8)
 (setq locale-coding-system 'utf-8)
-;; set the default encoding system
 (prefer-coding-system 'utf-8)
 (setq default-file-name-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-;; backwards compatibility as default-buffer-file-coding-system
-;; is deprecated in 23.2.
 (if (boundp buffer-file-coding-system)
     (setq buffer-file-coding-system 'utf-8)
   (setq default-buffer-file-coding-system 'utf-8))
@@ -15,6 +15,10 @@
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
 
+
+;;------------------------------------;;
+;;           default frame            ;;
+;;------------------------------------;;
 (setq default-frame-alist
       (append (list
 	           '(min-height . 1)
@@ -28,19 +32,30 @@
                '(tool-bar-lines . 0)
                '(menu-bar-lines . 0))))
 
-(require 'essentials) 
+
+;;---------------------------------------;;
+;;           packaging systems           ;;
+;;---------------------------------------;;
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
+
 (unless package-archive-contents
   (package-refresh-contents))
+
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
 (require 'use-package)
 (setq use-package-always-ensure nil)
+
+
+
+;;-------------------------------------;;
+;;              packages               ;; 
+;;-------------------------------------;;
 
 (use-package ivy
   :diminish
@@ -56,27 +71,19 @@
               ("C-k" . ivy-previous-line)
               ("C-d" . ivy-reverse-i-search-kill)))
 
-
 (use-package ivy-rich)
-
 
 (use-package which-key
   :defer 0
-  :diminish which-key-mode)
-  :config
- 
+  :diminish which-key-mode) 
 
 (use-package counsel
   :bind (("C-M-j" . 'counsel-switch-buffer)
          :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history))
-  :config
-  (counsel-mode 1))
+         ("C-r" . 'counsel-minibuffer-history)))
 
 (use-package ivy-prescient
-  :after counsel
-  :config
-  (ivy-prescient-mode 1))
+  :after counsel)
 
 (use-package helpful
   :commands (helpful-callable helpful-variable helpful-command helpful-key)
@@ -91,7 +98,6 @@
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
-
 
 (use-package buffer-flip
   :ensure t
@@ -120,7 +126,6 @@
   :config
   (dashboard-setup-startup-hook))
 
-    
-
+  
 
 (provide 'initial)

@@ -18,6 +18,9 @@
             (setq-local header-line-format nil)))
 (add-hook 'dired-single-mode-hook
            (lambda ()
+             (setq-local header-line-format nil)))
+(add-hook 'dashboard-mode-hook
+           (lambda ()
             (setq-local header-line-format nil)))
 
 

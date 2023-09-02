@@ -11,14 +11,17 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 
+(counsel-mode 1)
 (ivy-mode 1)
-(ivy-rich-mode 1)
-(which-key-mode 1)
-
-
 (setq ivy-height 7)
+(ivy-rich-mode 1)
+(ivy-prescient-mode 1)
+
+(which-key-mode 1)
 (setq which-key-idle-delay 1)
-(setq initial-scratch-message "")
+
+
+;; (setq initial-scratch-message "RisEmacs")
 (setq dashboard-startup-banner "~/RisEmacs/logo.png")
 (setq dashboard-banner-logo-title nil)
 (setq dashboard-center-content t)
