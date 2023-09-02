@@ -67,6 +67,7 @@
   :type 'color
   :group 'nano)
 
+
 (defcustom nano-color-critical (nano-base-colors--get 'critical)
   ""
   :type 'color
@@ -107,10 +108,16 @@
   :type 'color
   :group 'nano)
 
+(defcustom nano-color-current-line (nano-base-colors--get 'subtle)
+  ""
+  :type 'color
+  :group 'nano)
+
 (defcustom nano-color-faded (nano-base-colors--get 'faded)
   ""
   :type 'color
   :group 'nano)
+
 (defcustom nano-color-faded2 (nano-base-colors--get 'faded)
   ""
   :type 'color
@@ -223,6 +230,21 @@ abused anyway)."
   :group 'nano)
 
 (defface nano-face-subtle nil
+  "Subtle face is used to suggest a physical area on the screen.
+It is important to not disturb too strongly the reading of
+information and this can be made by setting a very light
+background color that is barely perceptible."
+  :group 'nano)
+
+
+(defface nano-face-current-line nil
+  "Subtle face is used to suggest a physical area on the screen.
+It is important to not disturb too strongly the reading of
+information and this can be made by setting a very light
+background color that is barely perceptible."
+  :group 'nano)
+
+(defface nano-face-highlight-region nil
   "Subtle face is used to suggest a physical area on the screen.
 It is important to not disturb too strongly the reading of
 information and this can be made by setting a very light

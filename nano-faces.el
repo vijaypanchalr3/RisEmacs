@@ -78,6 +78,10 @@
 
   (set-face-attribute 'nano-face-subtle nil
                       :background nano-color-subtle)
+  (set-face-attribute 'nano-face-highlight-region nil
+                      :background nano-color-highlight)
+  (set-face-attribute 'nano-face-current-line nil
+                      :background nano-color-current-line)
 
   (set-face-attribute 'nano-face-header-default nil
                       :foreground nano-color-foreground

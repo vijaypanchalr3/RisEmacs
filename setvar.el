@@ -1,7 +1,7 @@
 
 
-(setq electric-pair-made t)
-(setq show-paren-mode t)
+(electric-pair-mode 1)
+(show-paren-mode 1)
 
 
 
@@ -11,9 +11,9 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 
-(setq ivy-mode t)
-(setq ivy-rich-mode t)
-(setq which-key-mode t)
+(ivy-mode 1)
+(ivy-rich-mode 1)
+(which-key-mode 1)
 
 
 (setq ivy-height 7)
@@ -34,5 +34,15 @@
 (setq window-divider-default-bottom-width 2)
 (setq window-divider-default-right-width 6)
 (setq window-divider-default-places t)
+
+
+
+
+(cond
+ ((member "-default" command-line-args) t)
+ ((member "-dark" command-line-args) (nano-theme-set-light))
+ (t (nano-theme-set-dark)))
+(call-interactively 'nano-refresh-theme)
+
 
 (provide 'setvar)

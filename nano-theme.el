@@ -45,8 +45,8 @@ Defaults to nil."
   (set-face 'bold                                     'nano-face-strong)
   (set-face 'italic                                    'nano-face-faded)
   (set-face 'bold-italic                              'nano-face-strong)
-  (set-face 'region                                   'nano-face-subtle)
-  (set-face 'highlight                                'nano-face-subtle)
+  (set-face 'region                                   'nano-face-highlight-region)
+  (set-face 'highlight                                'nano-face-highlight-region)
   ;;(set-face 'fixed-pitch                                     'default)
   (set-face 'fixed-pitch-serif                       'nano-face-default)
   (set-face 'cursor                                  'nano-face-default)
@@ -67,6 +67,7 @@ Defaults to nil."
   (set-face-attribute 'window-divider-first-pixel nil
                       :foreground nano-color-subtle
 		      :background nano-color-subtle)
+  
   ;;                  :foreground (face-background 'nano-face-subtle))
   (set-face-attribute 'window-divider-last-pixel nil
                       :foreground nano-color-subtle
@@ -188,7 +189,7 @@ Defaults to nil."
   "Derive hl-line faces from nano faces."
   (with-eval-after-load 'hl-line
     (set-face-attribute 'hl-line nil
-                         :background nano-color-highlight)))
+                         :background nano-color-current-line)))
 
 
 

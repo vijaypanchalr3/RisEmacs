@@ -1,1 +1,2 @@
+*  RisEmacs
 This is my personal take down to configure emacs with little help from other config file NANO-emacs.

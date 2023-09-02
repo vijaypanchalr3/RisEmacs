@@ -87,7 +87,7 @@
 	    (propertize (make-string available-width ?\ )
                         'face 'nano-face-header-default)
 	    (propertize right 'face `(:inherit nano-face-header-default
-                                      :foreground ,nano-color-faded)))))
+                                      :foreground ,nano-color-highlight)))))
 
 ;; ---------------------------------------------------------------------
 (defun nano-modeline-mu4e-dashboard-mode-p ()

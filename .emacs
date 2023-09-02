@@ -1,51 +1,12 @@
-
-;; (package-initialize)
-;;(setq vc-handled-backends nil)
 (add-to-list 'load-path "~/RisEmacs/")
-
-;; (require 'nano-splash)
-;; (let ((inhibit-message t))
-;;   (message "Welcome to GNU Emacs / N Λ N O edition")
-;;   (message (format "Initialization time: %s" (emacs-init-time))))
-
-;; Default layout (optional)
-;;(require 'nano-layout)
-;; (add-to-list 'command-switch-alist '("-dark"   . (lambda (args))))
-;; (add-to-list 'command-switch-alist '("-light"  . (lambda (args))))
-;; (add-to-list 'command-switch-alist '("-default"  . (lambda (args))))
-;; (add-to-list 'command-switch-alist '("-no-splash" . (lambda (args))))
-;; ;; (add-to-list 'command-switch-alist '("-no-help" . (lambda (args))))
-;; (add-to-list 'command-switch-alist '("-compact" . (lambda (args))))
 
 
 (require 'initial)
 (require 'design)
-
-;; custom functions
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(custom-safe-themes
-;;    '("e7820b899036ae7e966dcaaec29fd6b87aef253748b7de09e74fdc54407a7a02" default))
-;;  '(package-selected-packages
-;;    '(dired-sidebar magit dashboard company-box company lsp-pyright lsp-mode org-ref flyspell-correct captain visual-fill-column dired-hide-dotfiles dired-filetype-face dired-single helpful ivy-prescient which-key use-package nano-modeline ivy-rich counsel))
-;; )
-
-
-
-(use-package dashboard
-  :ensure nil
-  :config
-  (dashboard-setup-startup-hook))
-
-
-
 (require 'customfun)
 (require 'keymaps)
 (require 'bdired)
-(require 'elatex)
+;;(require 'elatex)
 (require 'languages)
 (require 'nano-faces)
 (require 'nano-theme)
@@ -55,19 +16,6 @@
 (require 'sethooks)
 (require 'setvar)
 (require 'borg)
-
-(cond
- ((member "-default" command-line-args) t)
- ((member "-dark" command-line-args) (nano-theme-set-light))
- (t (nano-theme-set-dark)))
-(call-interactively 'nano-refresh-theme)
-
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(window-divider-default-right-width 5))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -100,32 +48,43 @@
 
 
 
-(use-package org
-  :config
-  ;;(setq org-ellipsis " "
-  ;;      org-hide-emphasis-markers t)
-  :bind
-  ("<f12>" . org-cycle-list-bullet))
-(add-hook 'org-mode-hook 'org-overview)
-(add-hook 'org-mode-hook 'org-num-mode)
-;; (setq-default line-spacing 0)
-;;(provide 'emacs-orgmode-config)
+;; (use-package org
+;;   :config
+;;   ;;(setq org-ellipsis " "
+;;   ;;      org-hide-emphasis-markers t)
+;;   :bind
+;;   ("<f12>" . org-cycle-list-bullet))
+;; (add-hook 'org-mode-hook 'org-overview)
+;; (add-hook 'org-mode-hook 'org-num-mode)
+;; ;; (setq-default line-spacing 0)
+;; ;;(provide 'emacs-orgmode-config)
 
-;; (setq org-adapt-indentation nil)
-;; (setq org-startup-truncated t)
-(setq global-page-break-line-mode t)
-;; (setq header-line-format " ")
-(customize-set-variable 'org-blank-before-new-entry 
-                        '((heading . nil)
-                          (plain-list-item . nil)))
-(setq backup-directory-alist `(("." . "~/.saves")))
+;; ;; (setq org-adapt-indentation nil)
+;; ;; (setq org-startup-truncated t)
+;; (setq global-page-break-line-mode t)
+;; ;; (setq header-line-format " ")
+;; (customize-set-variable 'org-blank-before-new-entry 
+;;                         '((heading . nil)
+;;                           (plain-list-item . nil)))
+;; (setq backup-directory-alist `(("." . "~/.saves")))
 
-;; (setq make-backup-files nil)
-(setq org-startup-indented t
-      org-pretty-entities t
-      org-startup-with-inline-images t
-      ;;org-startup-latex-with-latex-preview t
-      org-image-actual-width (list 550))
-(setq org-cycle-separator-lines 1)
-(setq org-log-done nil)
-(setq org-html-coding-system 'utf-8-unix)
+;; ;; (setq make-backup-files nil)
+;; (setq org-startup-indented t
+;;       org-pretty-entities t
+;;       org-startup-with-inline-images t
+;;       ;;org-startup-latex-with-latex-preview t
+;;       org-image-actual-width (list 550))
+;; (setq org-cycle-separator-lines 1)
+;; (setq org-log-done nil)
+;; (setq org-html-coding-system 'utf-8-unix)
+
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(yasnippet which-key vterm-toggle visual-fill-column use-package rainbow-delimiters nano-modeline mixed-pitch magit lsp-pyright ivy-rich ivy-prescient helpful flyspell-correct dired-single dired-sidebar dired-hide-dotfiles dired-filetype-face dashboard counsel company-box captain buffer-flip all-the-icons))
+ '(warning-suppress-log-types '((comp))))
