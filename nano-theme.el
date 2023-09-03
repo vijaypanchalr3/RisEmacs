@@ -440,6 +440,30 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face 'org-archived                            'nano-face-faded)
     (set-face 'org-block                                       'hl-line)
     (set-face-attribute 'org-block nil :family (face-attribute 'nano-face-default :family) :height (if (display-graphic-p) (round (* 1.1 (* 10 nano-font-size))) 1))
+    (set-face-attribute 'org-code nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face 'org-table                               'nano-face-faded)
+    (set-face-attribute 'org-table nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face-attribute 'org-date nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face-attribute 'org-tag nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face-attribute 'org-priority nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face-attribute 'org-special-keyword nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face-attribute 'org-footnote nil
+			:family (face-attribute 'nano-face-default :family)  :height (if (display-graphic-p)
+											(round
+											 (* 0.85 (* 10 nano-font-size)))
+										       1))
+    (set-face-attribute 'org-verbatim nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face-attribute 'org-hide nil
+			:family (face-attribute 'nano-face-default :family))
+    (set-face-attribute 'org-checkbox nil
+			:family (face-attribute 'nano-face-default :family))
     (set-face 'org-block-begin-line                    'nano-face-faded)
     (set-face 'org-block-end-line                      'nano-face-faded)
     (unless (version< emacs-version "27.0")
@@ -468,7 +492,7 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face-attribute 'org-document-title nil :height (if (display-graphic-p) (round (* 1.5 (* 10 nano-font-size))) 1))
     (set-face 'org-done                              'nano-face-default)
     (set-face 'org-drawer                              'nano-face-faded)
-    (set-face 'org-ellipsis                            'nano-face-faded)
+    (set-face 'org-ellipsis                            'nano-face-strong)
     (set-face 'org-footnote                            'nano-face-faded)
     (set-face 'org-formula                             'nano-face-faded)
     (set-face 'org-headline-done                       'nano-face-faded)
@@ -503,7 +527,6 @@ function is a convenience wrapper used by `describe-package-1'."
 						       +                                                      nano-face-strong))
     (set-face 'org-sexp-date                           'nano-face-faded)
     (set-face 'org-special-keyword                     'nano-face-faded)
-    (set-face 'org-table                               'nano-face-faded)
     (set-face 'org-tag                                'nano-face-popout)
     (set-face 'org-tag-group                           'nano-face-faded)
     (set-face 'org-target                              'nano-face-faded)
@@ -654,6 +677,7 @@ Requires both to be loaded in order to work."
          ((string= nano-theme-var "dark")
           (nano-theme-set-light))
          (t nil))
+  
   (nano-refresh-theme))
 
 (setq org-bullets-bullet-list '("#"))

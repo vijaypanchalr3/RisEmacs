@@ -2,7 +2,7 @@
 
 (electric-pair-mode 1)
 (show-paren-mode 1)
-
+(save-place-mode 1)
 
 
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time

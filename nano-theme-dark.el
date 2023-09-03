@@ -24,7 +24,7 @@
   (setq nano-color-background   "#121422")
   (setq nano-color-highlight    "#4eab9b")
   (setq nano-color-critical     "#d35b55")
-  (setq nano-color-salient      "#81A1C1")
+  (setq nano-color-salient      "#78b2eb")
   (setq nano-color-strong       "#ffb86c")
   (setq nano-color-strong2      "#ffb86c")
   (setq nano-color-strong3      "#eab65e")

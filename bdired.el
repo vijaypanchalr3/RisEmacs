@@ -1,4 +1,4 @@
-(use-package dired-single)
+
 (require 'nano-theme)
 (defun my-dired-init ()
   "Bunch of stuff to run for dired, either immediately or when it's
@@ -18,7 +18,7 @@
   ;; it's not loaded yet, so add our bindings to the load-hook
   (add-hook 'dired-load-hook 'my-dired-init))
 
-(with-eval-after-load 'dired  (use-package dired-filetype-face))
+
 ;;(deffiletype-face "julia" (nano-color-faded)
 (deffiletype-face-regexp julia :extensions '("julia" "jl"))
 (deffiletype-setup "julia")
@@ -37,7 +37,7 @@
     "f95"))
 (deffiletype-setup "cpp")
 
-(with-eval-after-load 'dired  (use-package dired-hide-dotfiles))
+
 (defun my-dired-mode-hook ()
     "My `dired' mode hook."
     ;; To hide dot-files by default

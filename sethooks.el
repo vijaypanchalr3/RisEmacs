@@ -22,7 +22,7 @@
 (add-hook 'dashboard-mode-hook
            (lambda ()
             (setq-local header-line-format nil)))
-
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (add-hook 'text-mode-hook
            (lambda ()

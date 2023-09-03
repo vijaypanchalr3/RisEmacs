@@ -23,22 +23,23 @@
 
 
   (setq frame-background-mode    'light)
-  (setq nano-color-foreground "#655370")
-  (setq nano-color-background "#FAF3F0")
-  (setq nano-color-highlight  "#9bd4bf") ;; Very Light Grey
-  (setq nano-color-critical   "#cc3c3c") ;; Amber / L900
+  (setq frame-background-mode    'light)
+  (setq nano-color-foreground "#37474F") ;; Blue Grey / L800
+  (setq nano-color-background "#FFFFFF") ;; White
+  (setq nano-color-highlight  "#a1dac6") ;; Very Light Grey
+  (setq nano-color-critical   "#FF6F00") ;; Amber / L900
   (setq nano-color-salient    "#673AB7") ;; Deep Purple / L500
-  (setq nano-color-strong     "#6f3104") ;; Black
-  (setq nano-color-strong2    "#6f3104") ;; Black
-  (setq nano-color-strong3    "#6f3104") ;; Black
-  (setq nano-color-strong4    "#43848c") ;; Black
-  (setq nano-color-strong5    "#577a8c") ;; Black
-  (setq nano-color-popout     "#E97777") ;; Deep Orange / L200
-  (setq nano-color-keyword    "#ff0000")
-  (setq nano-color-subtle     "#F5EBE0") ;; Blue Grey / L50
-  (setq nano-color-current-line "#f3e5de") 
-  (setq nano-color-faded      "#66bea1") ;; manjaro light
-  (setq nano-color-faded2     "#66bea1") ;; manjaro light
+  (setq nano-color-strong     "#284137") ;; Black
+  (setq nano-color-strong2     "#284137") ;; Black
+  (setq nano-color-strong3     "#284137") ;; Black
+  (setq nano-color-strong4     "#284137") ;; Black
+  (setq nano-color-strong5     "#284137") ;; Black
+  (setq nano-color-popout     "#FFAB91") ;; Deep Orange / L200
+  (setq nano-color-subtle     "#ECEFF1") ;; Blue Grey / L50
+  (setq nano-color-current-line "#f5f5f5") 
+  (setq nano-color-faded      "#B0BEC5") ;; Blue Grey / L200
+  (setq nano-color-faded2      "#B0BEC5") ;; Blue Grey / L200
+
   ;; to allow for toggling of the themes.
   (setq nano-theme-var "light")
   )
