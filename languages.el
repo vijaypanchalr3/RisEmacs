@@ -14,12 +14,15 @@
 
 ;; (setq python-shell-interpreter "python3.10")
 ;; (setq python-shell-interpreter-args "-i")
-;; (use-package lsp-pyright
-;;   :ensure t
+;; (use-package lsp-pyright)
 ;;   :hook (python-mode . (lambda ()
 ;;                          (require 'lsp-pyright)
 ;;                          (lsp))))
-
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
 (use-package company
   :after lsp-mode
   :hook '((lsp-mode . company-mode)
